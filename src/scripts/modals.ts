@@ -1,10 +1,22 @@
 export function openModal() {
-  const dialog = document.querySelectorAll("dialog");
-  const button = document.querySelectorAll("button[type=button]");
+  const dialogs = document.querySelectorAll("dialog");
+  const buttons = document.querySelectorAll("button[id=open]");
 
-  button.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      dialog.forEach((d) => d.showModal());
+  buttons.forEach((button, index) => {
+    button.addEventListener("click", () => {
+      const dialog = dialogs[index];
+      if (dialog) {
+        dialog.showModal();
+      }
+    });
+  });
+
+  dialogs.forEach((dialog) => {
+    dialog.addEventListener("click", (event) => {
+      const target = event.target as HTMLElement;
+      if (target && target.tagName === "DIALOG") {
+        dialog.close();
+      }
     });
   });
 }

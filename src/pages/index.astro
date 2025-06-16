@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Modal from "../components/modal.astro";
 import "../styles/global.css";
 ---
 
@@ -8,32 +7,41 @@ import "../styles/global.css";
   <header>
     <div class="flex justify-between">
       <img class="size-19" src="/ipn.png" alt="" />
+      <h1>Mineria de datos</h1>
       <img class="size-19" src="/upiicsa.png" alt="" />
     </div>
   </header>
   <main>
-    <section class="grid grid-cols-2 gap-4">
-      <div class="border-2 border-black size-96 rounded-xl">
-        <button
-          type="button"
-          class="bg-green-400 p-2 border-2 border-black rounded-full cursor-pointer"
-          >i</button
-        >
-      </div>
+    <section>
+      <iframe
+        src="/Barras.html"
+        width="100%"
+        height="500px"
+        title="Grafico de barras de frecuencias de edades"></iframe>
+      <div id="chart"></div>
 
-      <div class="border-2 border-black size-96 rounded-xl"></div>
-      <div class="border-2 border-black size-96 rounded-xl"></div>
+      <iframe
+        src="/HistogramaRiesgo.html"
+        width="100%"
+        height="500px"
+        title="Histograma de riesgo"></iframe>
+      <div id="chart"></div>
 
-      <div class="border-2 border-black size-96 rounded-xl">
-        <button id="open">i</button>
-        <dialog id="dialog" closedby="any">
-          <h2></h2>
-          <p></p>
-          <form method="dialog">
-            <button>cerrar</button>
-          </form>
-        </dialog>
-      </div>
+      <iframe
+        src="/Boxplot_Multiple.html"
+        width="100%"
+        height="500px"
+        title="Boxplot multiple variable y nivel de riesgo"
+        loading="lazy"></iframe>
+      <div id="chart"></div>
+
+      <iframe
+        src="/Mapa_Calor_Correlacion.html"
+        width="100%"
+        height="500px"
+        title="Mapa de calor de correlacion"
+        loading="lazy"></iframe>
+      <div id="chart"></div>
     </section>
   </main>
   <footer>
