@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 ---
 
-<Layout title="Home">
+<Layout title="Mineria de datos">
   <header>
-    <div class="flex justify-between">
+    <div class="flex mt-6 justify-between">
       <img class="size-19" src="/ipn.png" alt="Escudo IPN" />
       <h1 class="flex text-center items-center">Riesgo de ataque cardiaco</h1>
       <img class="size-19" src="/upiicsa.png" alt="Escudo UPIICSA" />
@@ -13,45 +13,53 @@ import "../styles/global.css";
   </header>
   <main>
     <section>
-      <div class="flex">
-        <p class="flex text-center">
+      <div class="flex mt-10">
+        <p class="text-center">
           Para este proyecto necesitamos un dataset que indica el nivel de
           riesgo que tiene una persona para tener un ataque cardiaco, analizamos
-          la edad, ritmo cardiaco, glucosa en sangre
+          la edad, ritmo cardiaco, glucosa en sangre, la presión
         </p>
       </div>
     </section>
 
     <section>
-      <iframe
-        src="/Barras.html"
-        width="100%"
-        height="500px"
-        title="Grafico de barras de frecuencias de edades"></iframe>
-      <div id="chart"></div>
+      <div class="flex justify-center">
+        <iframe
+          src="/Barras.html"
+          width="80%"
+          height="500px"
+          title="Grafico de barras de frecuencias de edades"></iframe>
+        <div id="chart"></div>
+      </div>
 
-      <iframe
-        src="/HistogramaRiesgo.html"
-        width="100%"
-        height="500px"
-        title="Histograma de riesgo"></iframe>
-      <div id="chart"></div>
+      <div class="flex justify-center">
+        <iframe
+          src="/HistogramaRiesgo.html"
+          width="80%"
+          height="500px"
+          title="Histograma de riesgo"></iframe>
+        <div id="chart"></div>
+      </div>
 
-      <iframe
-        src="/Boxplot_Multiple.html"
-        width="100%"
-        height="500px"
-        title="Boxplot multiple variable y nivel de riesgo"
-        loading="lazy"></iframe>
-      <div id="chart"></div>
+      <div class="flex justify-center">
+        <iframe
+          src="/Boxplot_Multiple.html"
+          width="80%"
+          height="500px"
+          title="Boxplot multiple variable y nivel de riesgo"
+          loading="lazy"></iframe>
+        <div id="chart"></div>
+      </div>
 
-      <iframe
-        src="/Mapa_Calor_Correlacion.html"
-        width="100%"
-        height="500px"
-        title="Mapa de calor de correlacion"
-        loading="lazy"></iframe>
-      <div id="chart"></div>
+      <div class="flex justify-center">
+        <iframe
+          src="/Mapa_Calor_Correlacion.html"
+          width="80%"
+          height="500px"
+          title="Mapa de calor de correlacion"
+          loading="lazy"></iframe>
+        <div id="chart"></div>
+      </div>
     </section>
   </main>
   <footer>
