@@ -13,8 +13,8 @@ import "../styles/global.css";
   </header>
   <main>
     <section>
-      <div class="flex mt-10">
-        <p class="text-center">
+      <div class="flex mt-10 justify-center">
+        <p>
           Para este proyecto necesitamos un dataset que indica el nivel de
           riesgo que tiene una persona para tener un ataque cardiaco, analizamos
           la edad, ritmo cardiaco, glucosa en sangre, la presión
@@ -29,7 +29,10 @@ import "../styles/global.css";
           width="80%"
           height="500px"
           title="Grafico de barras de frecuencias de edades"></iframe>
-        <div id="chart"></div>
+        <button
+          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+          onclick="openModal('barras')">i</button
+        >
       </div>
 
       <div class="flex justify-center">
@@ -38,7 +41,10 @@ import "../styles/global.css";
           width="80%"
           height="500px"
           title="Histograma de riesgo"></iframe>
-        <div id="chart"></div>
+        <button
+          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+          onclick="openModal('histograma')">i</button
+        >
       </div>
 
       <div class="flex justify-center">
@@ -48,7 +54,10 @@ import "../styles/global.css";
           height="500px"
           title="Boxplot multiple variable y nivel de riesgo"
           loading="lazy"></iframe>
-        <div id="chart"></div>
+        <button
+          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+          onclick="openModal('boxplot')">i</button
+        >
       </div>
 
       <div class="flex justify-center">
@@ -58,12 +67,80 @@ import "../styles/global.css";
           height="500px"
           title="Mapa de calor de correlacion"
           loading="lazy"></iframe>
-        <div id="chart"></div>
+        <button
+          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+          onclick="openModal('mapa')">i</button
+        >
       </div>
     </section>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div id="modal-body"></div>
+      </div>
+    </div>
   </main>
   <footer>
     <div></div>
     <p class="flex justify-center">&copy; Todos los derechos reservados</p>
   </footer>
+
+  <script>
+    // Extiende la interfaz Window para evitar errores de TypeScript
+    interface Window {
+      openModal: (id: string) => void;
+      closeModal: () => void;
+    }
+
+    function openModal(id: string) {
+      const modal = document.getElementById("modal");
+      const modalBody = document.getElementById("modal-body");
+
+      if (!modal || !modalBody) {
+        console.error("Modal elements not found");
+        return;
+      }
+
+      let content = "";
+      switch (id) {
+        case "barras":
+          content = "Información sobre el gráfico de barras...";
+          break;
+        case "histograma":
+          content = "Información sobre el histograma...";
+          break;
+        case "boxplot":
+          content = "Información sobre el boxplot...";
+          break;
+        case "mapa":
+          content =
+            "El mapa de calor muestra la correlación entre las variables del dataset. Los colores más oscuros indican una mayor correlación. La correlación es una medida estadística que indica la relación entre dos variables.En este caso, se observa que algunas variables como la edad y el riesgo de ataque cardiaco tienen una correlación significativa.";
+          break;
+        default:
+          content = "Información no disponible";
+      }
+
+      modalBody.innerHTML = content;
+      modal.classList.remove("hidden");
+    }
+
+    function closeModal() {
+      addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+      const modal = document.getElementById("modal");
+      if (!modal) {
+        console.error("Modal element not found");
+        return;
+      }
+      modal.classList.add("hidden");
+    }
+
+    // Exponer las funciones al objeto window
+    (window as any).openModal = openModal;
+    (window as any).closeModal = closeModal;
+  </script>
 </Layout>
