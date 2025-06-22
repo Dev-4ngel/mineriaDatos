@@ -1,146 +1,179 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+/*
+Proyecto creado por el alumno Torres Reyes Jesús Angel
+GitHub: Dev-4ngel
+*/
 ---
 
 <Layout title="Mineria de datos">
   <header>
-    <div class="flex mt-6 justify-between">
+    <div class="flex mt-7 justify-between w-5/6 mx-auto">
       <img class="size-19" src="/ipn.png" alt="Escudo IPN" />
-      <h1 class="flex text-center items-center">Riesgo de ataque cardiaco</h1>
+      <h1 class="flex text-center items-center text-2xl">
+        Riesgo de ataque cardíaco
+      </h1>
       <img class="size-19" src="/upiicsa.png" alt="Escudo UPIICSA" />
     </div>
   </header>
   <main>
     <section>
       <div class="flex mt-10 justify-center">
-        <p>
-          Para este proyecto necesitamos un dataset que indica el nivel de
-          riesgo que tiene una persona para tener un ataque cardiaco, analizamos
-          la edad, ritmo cardiaco, glucosa en sangre, la presión
+        <p class="text-base w-5/6">
+          Las enfermedades cardiovasculares en nuestro país son la primera causa
+          de muerte, tanto en varones como en mujeres. Entre las enfermedades
+          cardiovasculares, la cardiopatía isquémica es la primera causa de
+          muerte en varones y la segunda en mujeres. Muchas de estas muertes
+          coronarias se producen en la fase de descompensación de la enfermedad
+          arterioesclerótica coronaria que conocemos como síndrome coronario
+          agudo (SCA). La gravedad del SCA y, en consecuencia, la
+          morbimortalidad asociada al mismo depende, de manera muy importante,
+          de que durante el mismo se produzca o no necrosis miocárdica.
+          <br />
+          Para esto los marcadores de riesgo cardiovascular son de vital importancia
+          ya que indican el aumento de la probabilidad de que una persona sufra un
+          evento cardiovascular, como un infarto de miocardio o un accidente cerebrovascular.
+          Estos factores pueden ser modificables, como la hipertensión arterial,
+          la diabetes, el tabaquismo, la obesidad y la falta de actividad física,
+          o no modificables, como la edad, el sexo y la historia familiar de enfermedades
+          cardiovasculares. La identificación de estos marcadores es crucial para
+          la prevención y el manejo de las enfermedades cardiovasculares, ya que
+          permite a los profesionales de la salud evaluar el riesgo individual de
+          cada paciente y tomar decisiones informadas sobre el tratamiento y la prevención.
+          En este contexto, el análisis de datos juega un papel fundamental, ya que
+          permite a los investigadores y médicos identificar patrones y tendencias
+          en los factores de riesgo, lo que a su vez puede conducir a mejores estrategias
+          de prevención y tratamiento. En este proyecto, se analizará un conjunto
+          de datos que contiene información sobre varios marcadores de riesgo cardiovascular,
+          con el objetivo de identificar patrones y tendencias que puedan ayudar
+          a mejorar la comprensión y el manejo de las enfermedades cardiovasculares.
         </p>
       </div>
+
+      <section>
+        <div class="flex justify-center">
+          <iframe
+            src="/Barras.html"
+            width="80%"
+            height="500px"
+            title="Grafico de barras de frecuencias de edades"></iframe>
+          <button
+            class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+            onclick="openModal('barras')">i</button
+          >
+        </div>
+
+        <div class="flex justify-center">
+          <iframe
+            src="/HistogramaRiesgo.html"
+            width="80%"
+            height="500px"
+            title="Histograma de riesgo"></iframe>
+          <button
+            class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+            onclick="openModal('histograma')">i</button
+          >
+        </div>
+
+        <div class="flex justify-center">
+          <iframe
+            src="/Boxplot_Multiple.html"
+            width="80%"
+            height="500px"
+            title="Boxplot multiple variable y nivel de riesgo"
+            loading="lazy"></iframe>
+          <button
+            class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+            onclick="openModal('boxplot')">i</button
+          >
+        </div>
+
+        <div class="flex justify-center">
+          <iframe
+            src="/Mapa_Calor_Correlacion.html"
+            width="80%"
+            height="500px"
+            title="Mapa de calor de correlacion"
+            loading="lazy"></iframe>
+          <button
+            class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
+            onclick="openModal('mapa')">i</button
+          >
+        </div>
+      </section>
+
+      <div id="modal" class="modal hidden">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div id="modal-body"></div>
+        </div>
+      </div>
     </section>
+    <footer>
+      <div></div>
+      <p class="flex justify-center">&copy; Todos los derechos reservados</p>
+    </footer>
 
-    <section>
-      <div class="flex justify-center">
-        <iframe
-          src="/Barras.html"
-          width="80%"
-          height="500px"
-          title="Grafico de barras de frecuencias de edades"></iframe>
-        <button
-          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
-          onclick="openModal('barras')">i</button
-        >
-      </div>
-
-      <div class="flex justify-center">
-        <iframe
-          src="/HistogramaRiesgo.html"
-          width="80%"
-          height="500px"
-          title="Histograma de riesgo"></iframe>
-        <button
-          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
-          onclick="openModal('histograma')">i</button
-        >
-      </div>
-
-      <div class="flex justify-center">
-        <iframe
-          src="/Boxplot_Multiple.html"
-          width="80%"
-          height="500px"
-          title="Boxplot multiple variable y nivel de riesgo"
-          loading="lazy"></iframe>
-        <button
-          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
-          onclick="openModal('boxplot')">i</button
-        >
-      </div>
-
-      <div class="flex justify-center">
-        <iframe
-          src="/Mapa_Calor_Correlacion.html"
-          width="80%"
-          height="500px"
-          title="Mapa de calor de correlacion"
-          loading="lazy"></iframe>
-        <button
-          class="border rounded-full size-8 bg-gray-200 text-gray-800 hover:bg-gray-300"
-          onclick="openModal('mapa')">i</button
-        >
-      </div>
-    </section>
-
-    <div id="modal" class="modal hidden">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="modal-body"></div>
-      </div>
-    </div>
-  </main>
-  <footer>
-    <div></div>
-    <p class="flex justify-center">&copy; Todos los derechos reservados</p>
-  </footer>
-
-  <script>
-    // Extiende la interfaz Window para evitar errores de TypeScript
-    interface Window {
-      openModal: (id: string) => void;
-      closeModal: () => void;
-    }
-
-    function openModal(id: string) {
-      const modal = document.getElementById("modal");
-      const modalBody = document.getElementById("modal-body");
-
-      if (!modal || !modalBody) {
-        console.error("Modal elements not found");
-        return;
+    <script>
+      // Extiende la interfaz Window para evitar errores de TypeScript
+      interface Window {
+        openModal: (id: string) => void;
+        closeModal: () => void;
       }
 
-      let content = "";
-      switch (id) {
-        case "barras":
-          content = "Información sobre el gráfico de barras...";
-          break;
-        case "histograma":
-          content = "Información sobre el histograma...";
-          break;
-        case "boxplot":
-          content = "Información sobre el boxplot...";
-          break;
-        case "mapa":
-          content =
-            "El mapa de calor muestra la correlación entre las variables del dataset. Los colores más oscuros indican una mayor correlación. La correlación es una medida estadística que indica la relación entre dos variables.En este caso, se observa que algunas variables como la edad y el riesgo de ataque cardiaco tienen una correlación significativa.";
-          break;
-        default:
-          content = "Información no disponible";
-      }
+      function openModal(id: string) {
+        const modal = document.getElementById("modal");
+        const modalBody = document.getElementById("modal-body");
 
-      modalBody.innerHTML = content;
-      modal.classList.remove("hidden");
-    }
-
-    function closeModal() {
-      addEventListener("keydown", (event) => {
-        if (event.key === "Escape") {
-          closeModal();
+        if (!modal || !modalBody) {
+          console.error("Modal elements not found");
+          return;
         }
-      });
-      const modal = document.getElementById("modal");
-      if (!modal) {
-        console.error("Modal element not found");
-        return;
-      }
-      modal.classList.add("hidden");
-    }
 
-    // Exponer las funciones al objeto window
-    (window as any).openModal = openModal;
-    (window as any).closeModal = closeModal;
-  </script>
+        let content = "";
+        switch (id) {
+          case "barras":
+            content =
+              "El gráfico de barras muestra la frecuencia de las edades en el dataset. Las barras representan el número de casos para cada rango de edad. Este tipo de gráfico es útil para visualizar la distribución de los datos y observar tendencias. En este caso, se observa que la mayoría de los casos se concentran en un rango específico de edad.";
+            break;
+          case "histograma":
+            content =
+              "El histograma muestra la distribución del riesgo de ataque cardiaco en el dataset. Los histogramas son útiles para visualizar la frecuencia de los datos en diferentes rangos. En este caso, se observa que la mayoría de los casos tienen un riesgo bajo, con algunos casos aislados de riesgo alto.";
+            break;
+          case "boxplot":
+            content =
+              "El boxplot muestra la distribución de los datos para cada variable en relación con el nivel de riesgo. Los boxplots son útiles para identificar la mediana, los cuartiles y los valores atípicos en los datos. En este caso, se observa que algunas variables como la edad y el ritmo cardiaco tienen una distribución más amplia en comparación con otras.";
+            break;
+          case "mapa":
+            content =
+              "El mapa de calor muestra la correlación entre las variables del dataset. Los colores más oscuros indican una mayor correlación. La correlación es una medida estadística que indica la relación entre dos variables. En este caso, se observa que algunas variables como la edad y el riesgo de ataque cardiaco tienen una correlación significativa.";
+            break;
+          default:
+            content = "Información no disponible";
+        }
+
+        modalBody.innerHTML = content;
+        modal.classList.remove("hidden");
+      }
+
+      function closeModal() {
+        addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            closeModal();
+          }
+        });
+        const modal = document.getElementById("modal");
+        if (!modal) {
+          console.error("Modal element not found");
+          return;
+        }
+        modal.classList.add("hidden");
+      }
+
+      // Exponer las funciones al objeto window
+      (window as any).openModal = openModal;
+      (window as any).closeModal = closeModal;
+    </script>
+  </main>
 </Layout>
